@@ -26,4 +26,4 @@ Blibliotecas utilizadas:
 ## Vista previa
 
 ![Home](home.png)
-![Alumnos](alumnos.png)
+![Alumnos](editAlumno.png)
