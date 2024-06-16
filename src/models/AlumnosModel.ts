@@ -14,4 +14,13 @@ export const AlumnosSchema = z.object({
   telefonos: z.array(TelefonosSchema)
 })
 
+const AlumnosSchemaWithId = AlumnosSchema.extend({
+  id: z.string(),
+});
+
+const AlumnosSchemaWhitoutTelefonos = AlumnosSchemaWithId.omit({telefonos: true})
+
+
 export type AlumnosType = z.infer<typeof AlumnosSchema>
+export type AlumnosTypeWhitId = z.infer<typeof AlumnosSchemaWithId>
+export type AlumnosTypeWhitoutTelefonos = z.infer<typeof AlumnosSchemaWhitoutTelefonos>

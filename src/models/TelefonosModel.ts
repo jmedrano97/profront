@@ -6,4 +6,7 @@ export const TelefonosSchema = z.object({
   numero: z.string()
 })
 
+export const TelefonosSchemaWhitoutId = TelefonosSchema.omit({id: true})
+
 export type TelefonosType = z.infer<typeof TelefonosSchema>
+export type TelefonosTypeWhitoutId = z.infer<typeof TelefonosSchemaWhitoutId>

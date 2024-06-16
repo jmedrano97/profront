@@ -7,7 +7,7 @@ const createAlumnoTelefonos = async (data: AlumnosType) => {
   const idAlumno = response.id
   const telefonos = data.telefonos
   for (const telefono of telefonos) {
-    telefono.alumno = idAlumno
+    telefono.alumno = parseInt(idAlumno)
     await telefonosServices.createTelefono(telefono)
   }
 

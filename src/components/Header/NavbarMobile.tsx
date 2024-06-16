@@ -2,6 +2,7 @@ import React from 'react'
 import { Navbar, NavbarContent, NavbarItem, Link } from '@nextui-org/react'
 const NavbarMobile = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+  console.log(isMenuOpen)
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>

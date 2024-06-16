@@ -9,7 +9,7 @@ import { styleInput, styleLabel } from '../../constants/EstilosForm'
 import OptionsAction from '../../components/OptionsAction'
 import { useAlumnos } from '../../hooks/useAlumnos'
 import TelefonosView from '../TelefonosView/TelefonosView'
-const verbo = {
+const verbo: { [key: string]: string } = {
   crear: 'Nuevo alumno',
   editar: 'Editar alumno',
   ver: 'Alumno'
@@ -23,7 +23,6 @@ export const AlumnosForm = () => {
   const isViewMode = accionAlumno === 'ver'
   const isEditMode = accionAlumno === 'editar'
   const isCreateMode = accionAlumno === 'crear'
-  const ocultarClass = isViewMode ? 'hidden' : ''
   const {
     register,
     handleSubmit,
@@ -177,7 +176,7 @@ export const AlumnosForm = () => {
                     </Button>
                   </div>
                 ))}
-                <Button onClick={() => append({ numero: '' })} className={`mt-2`}>
+                <Button onClick={() => append({ id: 0, alumno: 0, numero: '' })} className={`mt-2`}>
                   Añadir Teléfono
                 </Button>
               </div>

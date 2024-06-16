@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import  { useEffect, useState, useCallback } from 'react'
 import { TelefonosType } from '../../models/TelefonosModel'
 import { telefonosServices } from '../../services/telefonosServices'
 import { styleInput } from '../../constants/EstilosForm'
@@ -6,7 +6,6 @@ import { Button } from '@nextui-org/react'
 import toast from 'react-hot-toast'
 import { useFieldArray, useForm } from 'react-hook-form'
 import { RiDeleteBin2Line, RiCloseFill, RiSave2Line } from 'react-icons/ri'
-import { useNavigate } from 'react-router-dom'
 
 interface TelefonosViewProps {
   idAlumno: string
@@ -15,9 +14,7 @@ interface TelefonosViewProps {
 
 const TelefonosView = ({ idAlumno, accion }: TelefonosViewProps) => {
   const [telefonos, setTelefonos] = useState<TelefonosType[]>([])
-  const isCreateMode = accion === 'crear'
   const isEditMode = accion === 'editar'
-  const navigate = useNavigate()
 
   const loadTelefonos = useCallback(async () => {
     if (idAlumno === '') return
@@ -29,7 +26,7 @@ const TelefonosView = ({ idAlumno, accion }: TelefonosViewProps) => {
     loadTelefonos()
   }, [loadTelefonos])
 
-  const { register, handleSubmit, control, reset, setValue } = useForm({
+  const { register, handleSubmit, control, setValue } = useForm({
     defaultValues: {
       telefonos: [{ numero: '' }]
     }
@@ -58,7 +55,7 @@ const TelefonosView = ({ idAlumno, accion }: TelefonosViewProps) => {
   const onSubmit = handleSubmit(async (data) => {
     try {
       const newTelefono = data.telefonos[0]
-      await telefonosServices.createTelefono({ alumno: idAlumno, numero: newTelefono.numero })
+      await telefonosServices.createTelefono({ alumno: parseInt(idAlumno), numero: newTelefono.numero })
       toast.success('Telefono añadido', {
         position: 'bottom-right',
         style: {
@@ -101,7 +98,7 @@ const TelefonosView = ({ idAlumno, accion }: TelefonosViewProps) => {
               type='number'
               {...register(`telefonos.${index}.numero`, { required: true })}
             />
-            <Button color='success' onClick={handleSubmit(onSubmit)} className={`ml-2`}>
+            <Button color='success' onClick={onSubmit} className={`ml-2`}>
               <RiSave2Line />
             </Button>
             <Button onClick={() => remove(index)} className={`ml-2`}>

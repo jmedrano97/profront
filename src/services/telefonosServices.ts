@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { TELEFONOS_API } from '../constants/apis'
-import { TelefonosSchema, TelefonosType } from '../models/TelefonosModel'
+import { TelefonosSchema, TelefonosType, TelefonosTypeWhitoutId } from '../models/TelefonosModel'
 import { validateResponse } from './validateResponse'
 const getAllTelefonos = async () => {
   const url = `${TELEFONOS_API.getAllTelefonos}`
@@ -23,7 +23,7 @@ const getTelefono = async (id: string) => {
   return response.data
 }
 
-const createTelefono = async (telefono: TelefonosType) => {
+const createTelefono = async (telefono: TelefonosTypeWhitoutId) => {
   const url = `${TELEFONOS_API.createTelefono}`
   const response = await axios.post<TelefonosType>(url, telefono, {
     headers: {

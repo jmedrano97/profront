@@ -1,4 +1,3 @@
-import { get } from 'react-hook-form'
 
 const ALUMNOS_BASE_URL = import.meta.env.VITE_ALUMNOS_BASE_URL as string
 

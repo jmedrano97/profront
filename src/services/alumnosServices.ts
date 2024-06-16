@@ -1,12 +1,12 @@
 import axios from 'axios'
 import { ALUMNOS_API } from '../constants/apis'
-import { AlumnosType, AlumnosSchema } from '../models/AlumnosModel'
+import { AlumnosType, AlumnosSchema,AlumnosTypeWhitId } from '../models/AlumnosModel'
 import { validateResponse } from './validateResponse'
 import { z } from 'zod'
 
 const getAllAlumnos = async () => {
   const url = `${ALUMNOS_API.getAllAlumnos}`
-  const response = await axios.get<AlumnosType[]>(url, {
+  const response = await axios.get<AlumnosTypeWhitId[]>(url, {
     headers: {
       'Content-Type': 'application/json'
     }
@@ -15,7 +15,6 @@ const getAllAlumnos = async () => {
   validateResponse(response.data, z.array(AlumnosSchema), 'Alumnos')
   return response.data
 }
-// alumno sin id
 
 const getAlumno = async (id: string) => {
   const url = `${ALUMNOS_API.getAlumno.replace(':id', id)}/`
@@ -29,9 +28,12 @@ const getAlumno = async (id: string) => {
   return response.data
 }
 
+// agregar un id a este alumnostype
+
+
 const createAlumno = async (alumno: AlumnosType) => {
   const url = `${ALUMNOS_API.createAlumno}`
-  const response = await axios.post<AlumnosType>(url, alumno, {
+  const response = await axios.post<AlumnosTypeWhitId>(url, alumno, {
     headers: {
       'Content-Type': 'application/json'
     }
@@ -43,7 +45,7 @@ const createAlumno = async (alumno: AlumnosType) => {
 
 const updateAlumno = async (id: string, alumno: AlumnosType) => {
   const url = `${ALUMNOS_API.updateAlumno.replace(':id', id)}/`
-  const response = await axios.put<AlumnosType>(url, alumno, {
+  const response = await axios.put<AlumnosTypeWhitId>(url, alumno, {
     headers: {
       'Content-Type': 'application/json'
     }
