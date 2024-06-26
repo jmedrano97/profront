@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { TELEFONOS_API } from '../constants/apis'
-import { TelefonosSchema, TelefonosType, TelefonosTypeWhitoutId } from '../models/TelefonosModel'
+import { TELEFONOS_API } from '../../constants/colegio/apis'
+import { TelefonosSchema, TelefonosType, TelefonosTypeWhitoutId } from '../../models/colegio/TelefonosModel'
 import { validateResponse } from './validateResponse'
 const getAllTelefonos = async () => {
   const url = `${TELEFONOS_API.getAllTelefonos}`

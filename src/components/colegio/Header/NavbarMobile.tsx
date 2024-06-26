@@ -8,12 +8,12 @@ const NavbarMobile = () => {
     <Navbar onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent className='sm:flex gap-4' justify='center'>
         <NavbarItem isActive>
-          <Link color='foreground' href='/'>
+          <Link color='foreground' href='/alumnos/'>
             Alumnos
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href='/alumno/crear' aria-current='page'>
+          <Link href='/alumnos/alumno/crear' aria-current='page'>
             Crear alumno
           </Link>
         </NavbarItem>

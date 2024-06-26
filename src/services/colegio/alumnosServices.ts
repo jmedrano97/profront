@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { ALUMNOS_API } from '../constants/apis'
-import { AlumnosType, AlumnosSchema,AlumnosTypeWhitId } from '../models/AlumnosModel'
+import { ALUMNOS_API } from '../../constants/colegio/apis'
+import { AlumnosType, AlumnosSchema,AlumnosTypeWhitId } from '../../models/colegio/AlumnosModel'
 import { validateResponse } from './validateResponse'
 import { z } from 'zod'
 

@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import NavbarMobile from '../components/Header/NavbarMobile'
+import NavbarMobile from '../../components/colegio/Header/NavbarMobile'
 
 const AlumnosWrapper = () => {
   const seeBorder = false

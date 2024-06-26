@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
-import AlumnosWrapper from '../layouts/AlumnosWrapper'
-import AlumnosView from '../views/AlumnosView/AlumnosView'
-import { AlumnosForm } from '../views/AlumnosForm/AlumnosForm'
+import AlumnosWrapper from '../layouts/colegio/AlumnosWrapper'
+import AlumnosView from '../views/colegio/AlumnosView/AlumnosView'
+import { AlumnosForm } from '../views/colegio/AlumnosForm/AlumnosForm'
 import MiligaWrapper from '../layouts/miliga/MiligaWrapper'
 import CompetenciasView from '../views/MiLiga/Competencias/CompetenciasView'
 const router = createBrowserRouter([

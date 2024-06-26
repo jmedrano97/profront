@@ -1,6 +1,6 @@
-import { AlumnosType } from '../models/AlumnosModel'
-import { alumnosServices } from '../services/alumnosServices'
-import { telefonosServices } from '../services/telefonosServices'
+import { AlumnosType } from '../../models/colegio/AlumnosModel'
+import { alumnosServices } from '../../services/colegio/alumnosServices'
+import { telefonosServices } from '../../services/colegio/telefonosServices'
 
 const createAlumnoTelefonos = async (data: AlumnosType) => {
   const response = await alumnosServices.createAlumno(data)

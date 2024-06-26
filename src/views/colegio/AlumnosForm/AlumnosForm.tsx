@@ -3,11 +3,11 @@ import { useForm, useFieldArray } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import { useEffect } from 'react'
-import { AlumnosType } from '../../models/AlumnosModel'
-import { alumnosServices } from '../../services/alumnosServices'
-import { styleInput, styleLabel } from '../../constants/EstilosForm'
-import OptionsAction from '../../components/OptionsAction'
-import { useAlumnos } from '../../hooks/useAlumnos'
+import { AlumnosType } from '../../../models/colegio/AlumnosModel'
+import { alumnosServices } from '../../../services/colegio/alumnosServices'
+import { styleInput, styleLabel } from '../../../constants/colegio/EstilosForm'
+import OptionsAction from '../../../components/colegio/OptionsAction'
+import { useAlumnos } from '../../../hooks/colegio/useAlumnos'
 import TelefonosView from '../TelefonosView/TelefonosView'
 const verbo: { [key: string]: string } = {
   crear: 'Nuevo alumno',
@@ -37,6 +37,7 @@ export const AlumnosForm = () => {
   })
 
   const onSubmit = handleSubmit(async (data) => {
+    console.log('accionAlumno: ',accionAlumno)
     try {
       if (accionAlumno === 'editar') {
         const response = await alumnosServices.updateAlumno(idAlumno, data)
@@ -47,7 +48,7 @@ export const AlumnosForm = () => {
             color: '#fff'
           }
         })
-        navigate(`/alumno/ver/${response.id}`)
+        navigate(`alumnos/alumno/ver/${response.id}`)
       } else if (accionAlumno === 'crear') {
         await useAlumnos.createAlumnoTelefonos(data)
         toast.success('Nuevo Alumno Añadido', {
@@ -57,7 +58,7 @@ export const AlumnosForm = () => {
             color: '#fff'
           }
         })
-        navigate('/')
+        navigate('/alumnos/')
       }
     } catch (error) {
       toast.error('Error al guardar el alumno', {

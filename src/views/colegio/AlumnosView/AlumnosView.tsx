@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const AlumnosView = () => {
   const navigate = useNavigate()
   const handleNewAlumno = () => {
-    navigate('/alumno/crear')
+    navigate('/alumnos/alumno/crear')
   }
   return (
     <div className='w-full flex flex-row justify-between items-center'>

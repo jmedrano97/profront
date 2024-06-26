@@ -1,7 +1,7 @@
 import toast from 'react-hot-toast'
 import { RiDeleteBin2Line, RiEdit2Fill } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
-import { alumnosServices } from '../services/alumnosServices'
+import { alumnosServices } from '../../services/colegio/alumnosServices'
 
 interface OptionsActionProps {
   id: string
@@ -14,7 +14,7 @@ const OptionsAction = ({ id }: OptionsActionProps) => {
       <span
         className='cursor-pointer text-blue-600'
         onClick={() => {
-          navigate(`/alumno/editar/${id}`)
+          navigate(`/alumnos/alumno/editar/${id}`)
         }}
       >
         <RiEdit2Fill />

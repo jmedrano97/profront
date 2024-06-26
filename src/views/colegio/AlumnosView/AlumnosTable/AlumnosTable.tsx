@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { AlumnosTypeWhitoutTelefonos } from '../../../models/AlumnosModel'
+import { AlumnosTypeWhitoutTelefonos } from '../../../../models/colegio/AlumnosModel'
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, Tooltip } from '@nextui-org/react'
-import { ALUMNOS_HEADERS_TABLE } from '../../../constants/AlumnosConstants'
+import { ALUMNOS_HEADERS_TABLE } from '../../../../constants/colegio/AlumnosConstants'
 import { RiEyeLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
-import { alumnosServices } from '../../../services/alumnosServices'
+import { alumnosServices } from '../../../../services/colegio/alumnosServices'
 
 const AlumnosTable = () => {
   const navigate = useNavigate()

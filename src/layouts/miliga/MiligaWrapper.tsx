@@ -5,6 +5,7 @@ const MiligaWrapper = () => {
     const seeBorder = false
     const maquetaBorder = seeBorder ? 'border border-white border-dashed' : ''
     return (
+      <main className='dark text-foreground bg-background'>
       <div className={`bg-backdrop min-h-screen`}>
         <NavbarMiliga/>
         <div className={`flex flex-col h-full ${maquetaBorder}`}>
@@ -14,6 +15,8 @@ const MiligaWrapper = () => {
         </div>
         {/* Footer */}
       </div>
+
+      </main>
     )
 }
 

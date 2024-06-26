@@ -2,7 +2,7 @@
 const ALUMNOS_BASE_URL = import.meta.env.VITE_ALUMNOS_BASE_URL as string
 
 export const ALUMNOS_API = {
-  getAllAlumnos: `${ALUMNOS_BASE_URL}/alumnos`,
+  getAllAlumnos: `${ALUMNOS_BASE_URL}/alumnos/`,
   getAlumno: `${ALUMNOS_BASE_URL}/alumnos/:id`,
   createAlumno: `${ALUMNOS_BASE_URL}/alumnos/`,
   updateAlumno: `${ALUMNOS_BASE_URL}/alumnos/:id`,
