@@ -3,7 +3,7 @@ import { z } from 'zod'
 export const CompetenciasSchema = z.object({
     nombre: z.string(),
     tipo: z.string(),
-    Liga: z.number(),
+    liga: z.number(),
     })
 
 const CompetenciasSchemaWithId = CompetenciasSchema.extend({

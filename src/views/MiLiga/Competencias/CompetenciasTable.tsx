@@ -13,7 +13,7 @@ const CompetenciasTable = () => {
         const data = await competenciasServices.getCompetenciasByLiga(2)
         setCompetencias(data)
 
-      } catch (error){
+      } catch (error) {
         console.error('Error competencias:', error)
       }
     }

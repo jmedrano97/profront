@@ -1,24 +1,31 @@
 import React from "react";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Checkbox, Input, Link, Select, SelectItem } from "@nextui-org/react";
-import { useForm, useFieldArray } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { CompetenciasType } from "../../models/miliga/CompetenciasModel";
 import { LIGA_ACTUAL } from "../../constants/miliga/MiligaConstants";
+import { competenciasServices } from "../../services/miliga/competenciasServices";
+import { toast } from "react-hot-toast";
 
 const ModalAddCompetencia = () => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const {
         register,
         handleSubmit,
-        control,
-        setValue,
+        // control,
+        // setValue,
         formState: { errors }
     } = useForm<CompetenciasType>({})
 
     const onSubmit = handleSubmit(async (data) => {
-        console.log('data form: ', data)
+        try {
+            const response = await competenciasServices.createCompetencia({ ...data, liga: LIGA_ACTUAL })
+            toast.success('Competencia creada')
+            console.log(response)
+            onOpenChange()
+        } catch (error) {
+            toast.error('Error al crear competencia')
+        }
     })
-
-
 
     return (
         <>
@@ -47,8 +54,8 @@ const ModalAddCompetencia = () => {
                                         className=""
                                         {...register('tipo', { required: true })}
                                     >
-                                        <SelectItem key='1'>Puntos</SelectItem>
-                                        <SelectItem key='2'>Eliminatoria</SelectItem>
+                                        <SelectItem key='Puntos'>Puntos</SelectItem>
+                                        <SelectItem key='Eliminatoria'>Eliminatoria</SelectItem>
                                     </Select>
 
                                 </ModalBody>
