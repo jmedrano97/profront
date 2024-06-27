@@ -37,7 +37,7 @@ export const AlumnosForm = () => {
   })
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log('accionAlumno: ',accionAlumno)
+    console.log('accionAlumno: ', accionAlumno)
     try {
       if (accionAlumno === 'editar') {
         const response = await alumnosServices.updateAlumno(idAlumno, data)

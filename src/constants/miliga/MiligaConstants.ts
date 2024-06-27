@@ -4,3 +4,4 @@ export const COMPETENCIAS_HEADERS_TABLE = [
     { key: 'tipo', label: 'Tipo' }
   ]
   
+export const LIGA_ACTUAL = 2

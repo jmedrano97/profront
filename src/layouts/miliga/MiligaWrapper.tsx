@@ -1,23 +1,23 @@
 import { Outlet } from 'react-router-dom'
-import NavbarMiliga from '../../components/miliga/Header/NavbarMiliga'
+import NavbarMiliga from '../../components/miliga/NavbarMiliga'
 
 const MiligaWrapper = () => {
-    const seeBorder = false
-    const maquetaBorder = seeBorder ? 'border border-white border-dashed' : ''
-    return (
-      <main className='dark text-foreground bg-background'>
-      <div className={`bg-backdrop min-h-screen`}>
-        <NavbarMiliga/>
-        <div className={`flex flex-col h-full ${maquetaBorder}`}>
-          <div className={`m-2 mx-8  ${maquetaBorder}`}>
-            <Outlet />
-          </div>
+  const seeBorder = false
+  const maquetaBorder = seeBorder ? 'border border-white border-dashed' : ''
+  return (
+    // <main className='dark text-foreground bg-background'>
+    <div className={`bg-backdrop min-h-screen`}>
+      <NavbarMiliga />
+      <div className={`flex flex-col h-full ${maquetaBorder}`}>
+        <div className={`m-2 mx-8  ${maquetaBorder}`}>
+          <Outlet />
         </div>
-        {/* Footer */}
       </div>
+      {/* Footer */}
+    </div>
 
-      </main>
-    )
+    // </main>
+  )
 }
 
 export default MiligaWrapper
